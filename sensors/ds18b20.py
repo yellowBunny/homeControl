@@ -1,7 +1,7 @@
 import re
 from time import sleep
 import os
-import sys
+import sys, json
 
 class PinConectionError(Exception):
     def __ini__(self,mgs):
@@ -42,13 +42,23 @@ class DS18b20:
         directory_container = self.sensor_id_and_directory()
 ##        print(directory_container)
         return [self.read_temp(sensor_dir) for sensor_dir in directory_container]
+    
+    def JSONtemp(self):
+        '''transform list to json data'''
+        temp_in_list = self.grab_temp()
+        d = dict(temperature=temp_in_list[0])
+        json_encder = json.JSONEncoder()
+        temp = json_encder.encode(d)
+        return temp
+        
 
     
 #main
 if __name__ == '__main__':
     #print(read_temp(sensor_path()[2]))
     read = DS18b20()
-    print(read.grab_temp())
+##    print(read.grab_temp())
+    print(read.JSONtemp())
     
         
         
