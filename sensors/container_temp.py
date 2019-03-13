@@ -6,8 +6,9 @@ class Container():
         self.salon = virtual_DHT11.DHT11().transform_to_dict(12)
         self.p1 = virtual_DHT11.DHT11().transform_to_dict(13)
         self.p2 = virtual_DHT11.DHT11().transform_to_dict(14)
+        self.kitchen = virtual_DHT11.DHT11().transform_to_dict(16)
         self.bathroom = virtual_DHT11.DHT11().transform_to_dict(15)
-        return [self.salon, self.p1, self.p2, self.bathroom]
+        return [self.salon, self.p1, self.p2, self.kitchen, self.bathroom]
 
 
 
