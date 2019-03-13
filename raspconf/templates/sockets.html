@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,7 @@
 </head>
 <body>
     <h1> sockets </h1>
-     <h1>{{ var }}</h1>
+    <h1>temp: </h1><h1 id="temp1">nothing</h1>
+    <script src='{% static "js/logic1.js" %}'></script>
 </body>
 </html>
