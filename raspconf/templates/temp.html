@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -6,19 +7,12 @@
 </head>
 <body>
     <h1> Temperatury stopni C | wilgotność % </h1>
-    <h2> zewnątrz: </h2>
-    <h2> salon : {{ temp_salon }}</h2>
-    <h2> pokój1 : {{ temp_p1 }}</h2>
-    <h2> pokoj2 : {{ temp_p2 }}</h2>
-    <h2> kuchnia : {{ temp_kitchen }}</h2>
-    <h2> łazienka : {{ temp_bathroom }}</h2>
-    <br>
-    <br/>
-    <h2> Włącz ogrzewanie </h2>
-    <h2> Wyłącz ogrzewanie </h2>
-    <br>
-    <br/>
-    <button id="tempZapisz"> zapisz </button><button id="tempAnuluj"> anuluj </button>
+    <h1>Salon: </h1><h1 id="salon">nothing</h1>
+    <h1>p1: </h1><h1 id="p1">nothing</h1>
+    <h1>p2: </h1><h1 id="p2">nothing</h1>
+    <h1>kuchnia: </h1><h1 id="kitchen">nothing</h1>
+    <h1>łazienka: </h1><h1 id="bathroom">nothing</h1>
 
+    <script src='{% static "js/logic2.js" %}'></script>
 </body>
 </html>
