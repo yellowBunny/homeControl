@@ -21,11 +21,14 @@ class DHT11:
     def JSONtemp(self, pin):
         'transform tuple to dict and to json data '
         temp_from_sensor = self.grab_temp(pin) #tuple
-        d = {key: val for key,val in zip(['temperature','humanidity'], temp_from_sensor)} # dict
+        d = {key: val for key,val in zip(['temperature','humidity'], temp_from_sensor)} # dict
         json_encoder = json.JSONEncoder() #sprawdzic zamiast biblioteki json mozna zastosowac po prostu '{}'.format(d) bo po konwersji przez json
         temp = json_encoder.encode(d) # zwraca string 
         return temp #json format
-            
+    
+    def transform_to_dict(self, pin):
+        temp_tuple = self.grab_temp(pin)
+        return {name: value for name, value in zip(['temp', 'humidity'], temp_tuple)}
             
 
 if __name__ =='__main__':
@@ -33,4 +36,5 @@ if __name__ =='__main__':
 ##    instance.grab_temp(1)
 ##    instance.grab_temp(16)
 ##    instance.grab_temp(12)
-    print(instance.JSONtemp(16))
+##    print(instance.JSONtemp(16))
+    print(instance.transform_to_dict(16))
