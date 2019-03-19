@@ -1,14 +1,13 @@
-{% load static %}
 body
 {
 
-	background: gray;
+	background: silver;
 }
 
 div
 {
 	color: blue;
-	font-size: 20px;
+	font-size: 26px;
 	float: left;
 	/*margin-right: 60px;*/
 
@@ -20,5 +19,25 @@ h1
 	color: black;
 	font-size: 20px;
 	margin-right: 20px;
+	text-align: right;
 	
+}
+
+
+.styled-select 
+{
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   height: 29px;
+   /*overflow: hidden;*/
+   width: 240px;
+}
+
+.styled-select select 
+{
+   background: gray;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
 }

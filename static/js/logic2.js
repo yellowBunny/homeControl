@@ -24,9 +24,10 @@ var readed = read_data();
 console.log(readed);
 
 function unzip(data, sensor_list){
-	for (var i in data) {		
+	for (var i in data) {
+		var celcius_sing = ' ' + String.fromCharCode(176) + 'C '		
 		console.log(i + ' temp: ' + data[i]['temp'] + ' wilgotność ' + data[i]['humanidity']);
-		sensor_list[i].innerHTML = 'temp: ' + data[i]['temp'] + ' wilgotność ' + data[i]['humanidity'];
+		sensor_list[i].innerHTML = data[i]['temp']+ celcius_sing + data[i]['humanidity'] + ' %';
 	};
 };
 

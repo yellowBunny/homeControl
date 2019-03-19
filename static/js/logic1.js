@@ -17,16 +17,17 @@ function read_data() {
 	// 	temp1.innerHTML = json_data['temp'] + ' ' + 'stopni' + ' '+ 'wilgotność'+ ' ' + json_data['humanidity'] + '%';
 	};
 	my_read.send();
-	setTimeout('read_data()', 5000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
+	setTimeout('read_data()', 10000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
 }
 
 var readed = read_data();
 console.log(readed);
 
 function unzip(data, sensor_list){
-	for (var i in data) {		
+	for (var i in data) {
+		var celcius_sing = String.fromCharCode(176) + 'C';		
 		console.log(i + ' temp: ' + data[i]['temp'] + ' wilgotność ' + data[i]['humanidity']);
-		sensor_list[i].innerHTML = 'temp: ' + data[i]['temp'] + ' wilgotność ' + data[i]['humanidity'];
+		sensor_list[i].innerHTML = data[i]['temp']+ celcius_sing +' '+ data[i]['humanidity'] + '%';
 	};
 };
 
