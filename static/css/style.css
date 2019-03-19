@@ -41,3 +41,14 @@ h1
    padding: 5px; /* If you add too much padding here, the options won't show in IE */
    width: 268px;
 }
+/*here we define class to color temperature font if will be grater than xC */
+.warning
+{
+	color: red;
+}
+/*here we define class to color temperature font in normal status */
+
+.normal
+{
+	color: green;
+}

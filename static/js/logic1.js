@@ -27,7 +27,16 @@ function unzip(data, sensor_list){
 	for (var i in data) {
 		var celcius_sing = String.fromCharCode(176) + 'C';		
 		console.log(i + ' temp: ' + data[i]['temp'] + ' wilgotność ' + data[i]['humanidity']);
+		if (data[i]['temp'] > 30){ //we set here font color if temp will be grater then 30. This colors are configure in css files. 
+			sensor_list[i].setAttribute('class', 'warning'); 
+			// console.log('temp czyjnika puwyzej 30C', data[i])
+
+		}else{ //otherwise color will be in normal color. This colors are configure in css files. 
+			sensor_list[i].setAttribute('class', 'normal');
+		}
+		
 		sensor_list[i].innerHTML = data[i]['temp']+ celcius_sing +' '+ data[i]['humanidity'] + '%';
+
 	};
 };
 
