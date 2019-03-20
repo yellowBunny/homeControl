@@ -1,6 +1,6 @@
 import os
 print(os.getcwd())
-import dht11, ds18b20
+from sensors import dht11, ds18b20
 
 class Container():
     def temp_containter_list(self):
