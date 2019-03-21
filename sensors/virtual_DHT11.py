@@ -5,7 +5,7 @@ class DHT11():
     def grab_temp_and_humanidity(self, pin):
         rand_temps = random.randrange(100)
         rand_humanidity = random.randrange(100)
-        print(f'tu mamy pin: {pin}')
+        print('tu mamy pin: {}'.format(pin))
         return rand_temps, rand_humanidity
 
     def transform_to_dict(self, pin):

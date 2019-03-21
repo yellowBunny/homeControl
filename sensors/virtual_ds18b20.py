@@ -2,7 +2,7 @@ import random, json
 
 class DS18b20():
     def grab_temp(self, pin):
-        print(f'tu mamy pin: {pin}')
+        print('tu mamy pin: {}'.format(pin))
         rand_temp = random.randrange(-50, 50)
         return [rand_temp]
 
