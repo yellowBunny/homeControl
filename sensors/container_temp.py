@@ -14,6 +14,7 @@ class Container():
         return [self.salon, self.p1, self.p2, self.kitchen, self.bathroom]
 
     def json_container(self):
+        '''method who saved data in list to json file'''
         contenet_obj = static_container.KeepTempInFile()
         temp_list = self.temp_containter_list()
         contenet_obj.save_to_json(self.FILE_PATH, temp_list)

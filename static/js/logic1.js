@@ -13,10 +13,9 @@ function read_data() {
 		var json_data = JSON.parse(my_read.responseText);
 		console.log(json_data);
 		unzip(json_data, sensor_list);
-
-	// 	temp1.innerHTML = json_data['temp'] + ' ' + 'stopni' + ' '+ 'wilgotność'+ ' ' + json_data['humanidity'] + '%';
 	};
 	my_read.send();
+	update_data();
 	setTimeout('read_data()', 10000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
 }
 
@@ -36,6 +35,13 @@ function unzip(data, sensor_list){
 
 	};
 };
+function update_data(){
+    console.log('in  update_data')
+    var my_read = new XMLHttpRequest();
+	my_read.open('GET', '/update');
+	my_read.send();
+}
+
 
 var readed = read_data();
 console.log(readed);
