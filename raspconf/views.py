@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from src.sensors import virtual_DHT11, virtual_ds18b20, container_temp
-import json
+from src.sensors import virtual_DHT11, virtual_ds18b20, container_temp, static_container
+import json, os
 
+STATIC_TEMP_FILE = 'sensors/temp.json'
 
 def home(request):
     return render(request, 'home.html', {})
@@ -24,10 +25,12 @@ def sockets(request):
 
 def back(request):
     print('jestes w views.back')
-    # container = container_temp.Container().temp_containter_list()
+    print(os.getcwd())
     container = container_temp.Container().temp_containter_list()
+    temp_in_json = static_container.KeepTempInFile().read_from_json(STATIC_TEMP_FILE)
+    print(temp_in_json)
     print(container)
-    test_data = [{'a': 1}, {'b':2}]
+
     json_data = json.JSONEncoder().encode(container)
     return HttpResponse(json_data)
 

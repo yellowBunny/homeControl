@@ -10,15 +10,17 @@ class KeepTempInFile():
     def read_from_json(self, file_name):
         with open(file_name, 'r') as file:
             readed_data = json.load(file)
-        return readed_data == 1
+            print('retuned data form read_form_json func', readed_data)
+        return readed_data
 
 
 if __name__ == '__main__':
     print(os.getcwd())
-    # instance = KeepTempInFile()
+    instance = KeepTempInFile()
     # json_encoder = json.JSONEncoder()
     # d = {'D':1, 'B':2}
     # data = json_encoder.encode(d)
     # # instance.save_to_json('empty.json',{})
-    # v = instance.read_from_json('temp.json')
-    # print(1 if v else 0)
+    v = instance.read_from_json('temp.json')
+    print(v)
+    print(1 if v else 0)
