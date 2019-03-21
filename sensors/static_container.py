@@ -2,16 +2,20 @@ import os
 import json
 class KeepTempInFile():
 
-    def save_to_json(self,file_name, data):
+    def save_to_json(self, file_name, data):
         with open(file_name, 'w') as file:
             json.dump(data, file)
+        # print('succes data was saved!!', data, '\n')
 
 
     def read_from_json(self, file_name):
-        with open(file_name, 'r') as file:
-            readed_data = json.load(file)
-            print('retuned data form read_form_json func', readed_data)
-        return readed_data
+        try:
+            with open(file_name, 'r') as file:
+                readed_data = json.load(file)
+                # print('retuned data form read_form_json func', readed_data , '\n')
+            return readed_data
+        except:
+            return False
 
 
 if __name__ == '__main__':
@@ -24,3 +28,4 @@ if __name__ == '__main__':
     v = instance.read_from_json('temp.json')
     print(v)
     print(1 if v else 0)
+

@@ -17,17 +17,28 @@ function read_data() {
 	// 	temp1.innerHTML = json_data['temp'] + ' ' + 'stopni' + ' '+ 'wilgotność'+ ' ' + json_data['humanidity'] + '%';
 	};
 	my_read.send();
+	update_data();
 	setTimeout('read_data()', 5000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
-}
-
-var readed = read_data();
-console.log(readed);
+};
 
 function unzip(data, sensor_list){
 	for (var i in data) {
-		var celcius_sing = ' ' + String.fromCharCode(176) + 'C '		
+		var celcius_sing = ' ' + String.fromCharCode(176) + 'C '
 		console.log(i + ' temp: ' + data[i]['temp'] + ' wilgotność ' + data[i]['humanidity']);
 		sensor_list[i].innerHTML = data[i]['temp']+ celcius_sing + data[i]['humanidity'] + ' %';
 	};
 };
+
+function update_data(){
+    console.log('in  update_data')
+    var my_read = new XMLHttpRequest();
+	my_read.open('GET', '/update');
+	my_read.send();
+}
+
+
+var readed = read_data();
+console.log(readed);
+
+
 

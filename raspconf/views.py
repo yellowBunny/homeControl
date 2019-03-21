@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from src.sensors import virtual_DHT11, virtual_ds18b20, container_temp, static_container
 import json, os
-
+print(os.getcwd())
 STATIC_TEMP_FILE = 'sensors/temp.json'
 
 def home(request):
@@ -25,16 +25,25 @@ def sockets(request):
 
 def back(request):
     print('jestes w views.back')
-    print(os.getcwd())
-    container = container_temp.Container().temp_containter_list()
-    temp_in_json = static_container.KeepTempInFile().read_from_json(STATIC_TEMP_FILE)
-    print(temp_in_json)
-    print(container)
 
+    container = container_temp.Container().temp_containter_list()
+    print(container,'container !!')
+    temp_in_json = static_container.KeepTempInFile().read_from_json(STATIC_TEMP_FILE)
+
+    if temp_in_json:
+        json_data = json.JSONEncoder().encode(temp_in_json)
+        return HttpResponse(json_data)
+    print('DATA NOT DETECTED')
     json_data = json.JSONEncoder().encode(container)
     return HttpResponse(json_data)
 
+def update_temp_data_in_json(request):
+    print('IN UPDATE')
+    container = container_temp.Container().temp_containter_list()
+    static_container.KeepTempInFile().save_to_json(STATIC_TEMP_FILE, container)
+    return HttpResponse('')
 
+# update_temp_data_in_json('')
 
 
 

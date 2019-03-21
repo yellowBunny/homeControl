@@ -1,8 +1,8 @@
 from src.sensors import virtual_DHT11, virtual_ds18b20, static_container
-import os
+
 class Container():
     FILE_PATH = 'temp.json'
-    print(os.getcwd())
+
 
     def temp_containter_list(self):
         self.outside = virtual_ds18b20.DS18b20().grab_temp(10)
