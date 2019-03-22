@@ -18,8 +18,7 @@ def sockets(request):
 def background_read_data_from_sensors(request):
     print('jestes w views.back')    
     container = container_temp.Container().temp_containter_list()
-    print(container)
-    test_data = [{'a': 1}, {'b':2}]
+    print(container)    
     json_data = json.JSONEncoder().encode(container)
     return HttpResponse(json_data)
 

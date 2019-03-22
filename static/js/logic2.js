@@ -4,7 +4,6 @@ var sensor_list = [document.getElementById('salon'),
 					document.getElementById('p2'),
 					document.getElementById('kitchen'),
 					document.getElementById('bathroom')];
-var container_temp = [];
 
 function read_data() {
 	var my_read = new XMLHttpRequest();
