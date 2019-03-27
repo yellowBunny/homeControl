@@ -18,7 +18,7 @@ function read_data() {
 	};
 	my_read.send();
 	update_data();
-	setTimeout('read_data()', 5000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
+	setTimeout(read_data, 5000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
 };
 
 function unzip(data, sensor_list){
