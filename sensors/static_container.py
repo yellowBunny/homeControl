@@ -3,10 +3,13 @@ import json
 class KeepTempInFile():
     def save_to_json(self, file_name, data):
         '''saved data to .json file'''
-        with open(file_name, 'w') as file:
-            json.dump(data, file)
-        print('succes data was saved!!', data, '\n')
-
+        try:
+            with open(file_name, 'w') as file:
+                json.dump(data, file)
+            print('succes data was saved!!', data, '\n')
+            return True
+        except:
+            return False
 
     def read_from_json(self, file_name):
         '''read data from .json file.

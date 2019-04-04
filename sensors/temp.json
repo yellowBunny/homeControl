@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-[{"humanidity": 2, "temp": 87}, {"humanidity": 17, "temp": 75}, {"humanidity": 79, "temp": 81}, {"humanidity": 38, "temp": 45}, {"humanidity": 93, "temp": 36}]
-=======
-[{"temp": 30, "humanidity": 91}, {"temp": 84, "humanidity": 16}, {"temp": 92, "humanidity": 71}, {"temp": 75, "humanidity": 22}, {"temp": 4, "humanidity": 2}]
->>>>>>> d2ededca302d55d72e29d3b3cfecceeb3b927f52
+[{"temp": 95, "humanidity": 0}, {"temp": 85, "humanidity": 66}, {"temp": 88, "humanidity": 93}, {"temp": 10, "humanidity": 63}, {"temp": 82, "humanidity": 71}]

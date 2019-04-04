@@ -4,18 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <title>ginazda</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/socket_style.css' %}">
+    <script type="text/javascript" src= "{% static 'js/socket_logic1.js' %}">></script>
 </head>
 <body>
     <h2> sockets </h2>
      <div class="styled-select green rounded">
-  		<select>
+  		<select id = 'selector'>
     		<option id="begin">ustaw godzinę</option>
     		<option id="one">1:00</option>
     		<option id="tow">2:00</option>
     		<option id="thre">3:00</option>
   		</select>
 	</div>
+	<button id="saveBTN">Save</button>
+  <h3 id='hour'>godzina</h3>
+  <h3 id='minute'>minuta</h3>
 
 </body>
 </html>

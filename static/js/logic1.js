@@ -16,7 +16,7 @@ function read_data() {
 	};
 	my_read.send();
 	update_data();
-	setTimeout(read_data, 10000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
+	setTimeout(read_data, 30000); // pierwszy arg to wywoływana funkcja, zas drugi to czas odswierzania podanu w ms
 }
 
 function unzip(data, sensor_list){
@@ -40,8 +40,15 @@ function update_data(){
     var my_read = new XMLHttpRequest();
 	my_read.open('GET', '/update');
 	my_read.send();
+	my_read.onload = function(){console.log('wczytywany plik: ',my_read.responseText)};
 }
+function test_f(){
+    var read = new XMLHttpRequest();
+    read.open('GET', '/up')
+    read.send();
+    read.onload = function(){console.log('test_f: sys version: ', read.responseText)};
 
+}
 
 var readed = read_data();
 console.log(readed);

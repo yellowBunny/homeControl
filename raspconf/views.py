@@ -1,9 +1,12 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from src.sensors import virtual_DHT11, container_temp, static_container
-import json, os
+from sensors import virtual_DHT11, container_temp, static_container
+from request import req
+import json, os, sys
+
 print(os.getcwd())
 STATIC_TEMP_FILE = 'sensors/temp.json'
+TEST_STATIC_FILE = 'sensors/test_container.json'
 
 def home(request):
     return render(request, 'home.html', {})
@@ -39,9 +42,19 @@ def update_temp_data_in_json(request):
     print('IN UPDATE')
     container = container_temp.Container().temp_containter_list()
     static_container.KeepTempInFile().save_to_json(STATIC_TEMP_FILE, container)
-    return HttpResponse('')
+    return HttpResponse('data was update!! {0}'.format(container))
 
 
+def test_func(request):
+    info = sys.version
+    return HttpResponse(info)
+
+
+def read_hours_and_minute(request):
+    obj_req = req.ParsDataFromURL()
+    data = obj_req.load_data_from_url('http://127.0.0.1:8000/sockets/')
+    feetback = obj_req.parse_data(data, 'h3')
+    return HttpResponse(feetback)
 
 
 
